@@ -1,0 +1,49 @@
+# Hausa translations for pomodoro package.
+# Copyright (C) 2018 THE pomodoro'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the pomodoro package.
+# Automatically generated, 2018.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pomodoro\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-25 14:25-0300\n"
+"PO-Revision-Date: 2018-02-25 14:25-0300\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: ha\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/PomodoroIndicator.vala:8
+msgid "Pomodoro"
+msgstr ""
+
+#: src/PomodoroIndicator.vala:9
+msgid "The Pomodoro timer"
+msgstr ""
+
+#: src/PopoverWidget.vala:7
+msgid "Start"
+msgstr ""
+
+#: src/PopoverWidget.vala:7
+msgid "Stop"
+msgstr ""
+
+#: src/PopoverWidget.vala:8
+msgid "Reset"
+msgstr ""
+
+#: src/PopoverWidget.vala:11
+msgid "Work"
+msgstr ""
+
+#: src/PopoverWidget.vala:12
+msgid "Short break"
+msgstr ""
+
+#: src/PopoverWidget.vala:13
+msgid "Long break"
+msgstr ""
