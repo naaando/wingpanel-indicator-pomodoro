@@ -1,7 +1,5 @@
 
 public class Pomodoro.PopoverWidget : Gtk.Grid {
-  private Pomodoro.Timer timer;
-
   public PopoverWidget (Pomodoro.Indicator indicator, Pomodoro.Timer timer) {
     set_orientation (Gtk.Orientation.VERTICAL);
     margin_top = 6;
@@ -16,6 +14,10 @@ public class Pomodoro.PopoverWidget : Gtk.Grid {
 
     toggle_switch.notify["active"].connect (() => {
       timer.running = toggle_switch.active;
+    });
+
+    timer.notify.connect (() => {
+      toggle_switch.active = timer.running;
     });
 
     reset.clicked.connect (() => {

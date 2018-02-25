@@ -6,46 +6,18 @@ protected class Pomodoro.Timer : GLib.Object {
   const double SHORTBREAK_TIME = 5*60;
   const double LONGBREAK_TIME = 15*60;
 
-  GLib.Timer timer;
-  double countdown = WORK_TIME;
-  int short_breaks = 4;
-  int breaks;
-  State _state;
-  bool _running;
-
-  State state {
-    get {
-      return _state;
-    }
-    set {
-      switch (value) {
-        case State.WORK:
-          countdown = WORK_TIME;
-          break;
-        case State.SHORTBREAK:
-          countdown = SHORTBREAK_TIME;
-          break;
-        case State.LONGBREAK:
-          countdown = LONGBREAK_TIME;
-          break;
-      }
-      _state = value;
-
-      start ();
-      update ();
-    }
-  }
-
   public bool running {
     get {
       return _running;
     }
     set {
-      if (timer == null && value) {
-        timer = new GLib.Timer ();
+      if (value == _running) {
+        return;
       }
 
-      if (value) {
+      if (timer == null && value) {
+        timer = new GLib.Timer ();
+      } else if (value) {
         timer.@continue ();
       } else {
         timer.stop ();
@@ -62,11 +34,42 @@ protected class Pomodoro.Timer : GLib.Object {
     }
   }
 
-  enum State {
+  public State state {
+    get {
+      return (timer == null) ? State.STOPPED : _state;
+    }
+    set {
+      switch (value) {
+        case State.WORK:
+        countdown = WORK_TIME;
+        break;
+        case State.SHORTBREAK:
+        countdown = SHORTBREAK_TIME;
+        break;
+        case State.LONGBREAK:
+        countdown = LONGBREAK_TIME;
+        break;
+      }
+      _state = value;
+
+      start ();
+      update ();
+    }
+  }
+
+  public enum State {
     WORK,
     SHORTBREAK,
-    LONGBREAK
+    LONGBREAK,
+    STOPPED
   }
+
+  GLib.Timer timer;
+  double countdown = WORK_TIME;
+  int short_breaks = 4;
+  int breaks;
+  State _state;
+  bool _running;
 
   public Timer () {
     debug ("Initiating timer");
