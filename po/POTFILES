@@ -1,0 +1,4 @@
+src/PomodoroIndicator.vala
+src/PomodoroTimer.vala
+src/PopoverWidget.vala
+src/RevealerSwitch.vala
