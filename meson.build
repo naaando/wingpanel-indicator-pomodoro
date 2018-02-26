@@ -14,9 +14,9 @@ wingpanel = dependency('wingpanel-2.0')
 subdir ('src')
 subdir ('po')
 
-shared_module('pomodoro',
+shared_module(meson.project_name (),
             sources,
             dependencies : [glib, gobject, gtk, granite, wingpanel],
             install: true,
-            install_dir : wingpanel.get_pkgconfig_variable('indicatorsdir')
+            install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
 )
