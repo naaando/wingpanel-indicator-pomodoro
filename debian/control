@@ -1,0 +1,21 @@
+Source: wingpanel-indicator-pomodoro
+Maintainer: Fernando da Silva Sousa <wild.nando@gmail.com>
+Section: x11
+Priority: optional
+Build-Depends: debhelper (>= 10),
+               libgirepository1.0-dev,
+               libglib2.0-dev,
+               libgranite-dev,
+               libgtk-3-dev (>= 3.12),
+               libwingpanel-2.0-dev,
+               meson,
+               valac (>= 0.34)
+Standards-Version: 3.9.7
+Homepage: https://github.com/naaando/wingpanel-indicator-pomodoro
+
+Package: wingpanel-indicator-pomodoro
+Architecture: any
+Depends: ${misc:Pre-Depends},${misc:Depends}, ${shlibs:Depends}
+Enhances: wingpanel
+Description: Wingpanel Pomodoro Indicator
+ Pomodoro timer for wingpanel
