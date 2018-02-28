@@ -10,6 +10,7 @@ You'll need the following dependencies:
     libgranite-dev
     libgtk-3-dev
     libwingpanel-2.0-dev
+    libnotify
     meson
     valac
 
