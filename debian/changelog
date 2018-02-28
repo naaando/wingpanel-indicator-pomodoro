@@ -1,5 +1,13 @@
-wingpanel-indicator-pomodoro (0.1) UNRELEASED; urgency=medium
+wingpanel-indicator-pomodoro (0.2.0) UNRELEASED; urgency=medium
+
+  * Implement notification
+  * Implement radiobuttons
+  * Text color changes on different status
+
+ -- Fernando da Silva Sousa <naaando@neon>  Wed, 28 Feb 2018 03:42:38 -0300
+
+wingpanel-indicator-pomodoro (0.1) xenial; urgency=medium
 
   * Initial release.
 
- -- Fernando da Silva Sousa <wild.naaando@gmail.com>  Sun, 25 Feb 2018 13:05:31 -0300
+ -- Fernando da Silva Sousa <naaando@neon>  Wed, 28 Feb 2018 03:42:23 -0300
