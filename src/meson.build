@@ -4,4 +4,5 @@ sources = files (
   'PomodoroTimer.vala',
   'PopoverWidget.vala',
   'RevealerSwitch.vala',
+  'RadioButton.vala',
 )

@@ -1,16 +1,17 @@
 
 public class Pomodoro.PopoverWidget : Gtk.Grid {
-  public PopoverWidget (Pomodoro.Indicator indicator, Pomodoro.Timer timer) {
+  Pomodoro.Timer timer;
+  Pomodoro.Indicator indicator;
+
+  public PopoverWidget (Pomodoro.Indicator _indicator, Pomodoro.Timer _timer) {
     set_orientation (Gtk.Orientation.VERTICAL);
     margin_top = 6;
 
+    timer = _timer;
+    indicator = _indicator;
+
     var toggle_switch = new NightLight.Widgets.Switch (_("Start"), _("Stop"));
     var reset = new Wingpanel.Widgets.Button (_("Reset"));
-
-    // TODO: Use radiobuttons
-    var work = new Wingpanel.Widgets.Button (_("Work"));
-    var short_break = new Wingpanel.Widgets.Button (_("Short break"));
-    var long_break = new Wingpanel.Widgets.Button (_("Long break"));
 
     toggle_switch.notify["active"].connect (() => {
       timer.running = toggle_switch.active;
@@ -26,23 +27,56 @@ public class Pomodoro.PopoverWidget : Gtk.Grid {
       toggle_switch.active = false;
     });
 
-    // TODO: add work state
+    add (toggle_switch);
+    add (reset);
+    add (new Wingpanel.Widgets.Separator ());
+    add (build_states_box());
+  }
 
-    short_break.clicked.connect (() => {
-      timer.short_break ();
+  Gtk.ListBox build_states_box () {
+    var list_box = new Gtk.ListBox ();
+    list_box.selection_mode = Gtk.SelectionMode.NONE;
+
+    var work = new Pomodoro.RadioButton (null, _("Work"));
+    var short_break = new Pomodoro.RadioButton (work.get_group (), _("Short break"));
+    var long_break = new Pomodoro.RadioButton (short_break.get_group (), _("Long break"));
+
+    list_box.add (work);
+    list_box.add (short_break);
+    list_box.add (long_break);
+
+    work.activate.connect (() => {
+      timer.work ();
       indicator.close ();
     });
 
-    long_break.clicked.connect (() => {
+    short_break.activate.connect (() => {
+      timer.short_break ();
+      indicator.close ();
+    });
+    //
+    long_break.activate.connect (() => {
       timer.long_break ();
       indicator.close ();
     });
 
-    add (toggle_switch);
-    add (reset);
-    add (new Wingpanel.Widgets.Separator ());
-    add (work);
-    add (short_break);
-    add (long_break);
+    timer.notify.connect (()=> {
+      switch (timer.state) {
+        case Timer.State.WORK:
+          work.active = true;
+          break;
+        case Timer.State.SHORTBREAK:
+          short_break.active = true;
+          break;
+        case Timer.State.LONGBREAK:
+          long_break.active = true;
+          break;
+        default:
+          work.active = true;
+          break;
+      }
+    });
+
+    return list_box;
   }
 }

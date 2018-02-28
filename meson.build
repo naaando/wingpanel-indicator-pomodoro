@@ -10,13 +10,14 @@ gobject = dependency('gobject-2.0')
 gtk = dependency('gtk+-3.0')
 granite = dependency('granite')
 wingpanel = dependency('wingpanel-2.0')
+notify = dependency('libnotify')
 
 subdir ('src')
 subdir ('po')
 
 shared_module(meson.project_name (),
             sources,
-            dependencies : [glib, gobject, gtk, granite, wingpanel],
+            dependencies : [glib, gobject, gtk, granite, wingpanel, notify],
             install: true,
             install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
 )

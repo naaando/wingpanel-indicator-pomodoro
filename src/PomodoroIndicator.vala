@@ -1,14 +1,36 @@
 
 public class Pomodoro.Indicator : Wingpanel.Indicator {
+    const string APPNAME = "wingpanel-indicator-pomodoro";
     private Pomodoro.PopoverWidget popover_widget;
     private Pomodoro.Timer pomodoro;
 
     public Indicator (Wingpanel.IndicatorManager.ServerType server_type) {
-        Object (code_name: "wingpanel-indicator-pomodoro",
+        Object (code_name: APPNAME,
                 display_name: _("Pomodoro"),
                 description: _("The Pomodoro timer"));
 
       pomodoro = new Timer ();
+
+      pomodoro.changed.connect (() => {
+        switch (pomodoro.state) {
+          case Timer.State.WORK:
+            var notification = new Notify.Notification ("Volte ao trabalho", "Desative as notificações, feche as redes sociais e se concentre no que veio fazer", null);
+            notification.app_name = APPNAME;
+            notification.show ();
+            break;
+          case Timer.State.SHORTBREAK:
+            var notification = new Notify.Notification ("Tire uma pequena pausa", "Pegue um café, beba uma agua ou vá ao banheiro", null);
+            notification.app_name = APPNAME;
+            notification.show ();
+            break;
+          case Timer.State.LONGBREAK:
+            var notification = new Notify.Notification ("Tire uma longa pausa", "Vá tomar um sol, relaxar ou comer uma fruta", null);
+            notification.app_name = APPNAME;
+            notification.show ();
+            break;
+        }
+      });
+
       visible = true;
     }
 
@@ -34,10 +56,21 @@ public class Pomodoro.Indicator : Wingpanel.Indicator {
       });
 
       pomodoro.notify.connect (() => {
-        if (pomodoro.state == Timer.State.STOPPED) {
+        var style = tlabel.get_style_context ();
+        switch (pomodoro.state) {
+          case Timer.State.WORK:
+            style.remove_class ("error");
+            break;
+          case Timer.State.SHORTBREAK:
+          case Timer.State.LONGBREAK:
+            style.add_class ("error");
+            break;
+        }
+
+        if (pomodoro.state == Pomodoro.Timer.State.STOPPED) {
           spinner.visible_child = indicator_icon;
         } else {
-          spinner.visible_child = tlabel;
+           spinner.visible_child = tlabel;
         }
       });
 
