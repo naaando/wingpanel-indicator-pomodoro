@@ -10,7 +10,7 @@ You'll need the following dependencies:
     libgranite-dev
     libgtk-3-dev
     libwingpanel-2.0-dev
-    libnotify
+    libnotify-dev
     meson
     valac
 
@@ -18,6 +18,7 @@ Run `meson` to configure the build environment and then `ninja` to build
 
     meson build --prefix=/usr
     ninja -C build
+    cd build
 
 To install, use `ninja install`
 
