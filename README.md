@@ -1,6 +1,6 @@
 # Pomodoro for elementary OS - Wingpanel Indicator
 
-TODO: Put a screenshot
+![Screenshot](data/screenshot.jpg?raw=true)
 
 ## Building and Installation
 
