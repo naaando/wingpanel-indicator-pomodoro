@@ -18,10 +18,10 @@ Run `meson` to configure the build environment and then `ninja` to build
 
     meson build --prefix=/usr
     ninja -C build
-    cd build
 
 To install, use `ninja install`
 
+    cd build
     sudo ninja install
 
 And restart wingpanel
