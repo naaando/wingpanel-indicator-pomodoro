@@ -9,20 +9,23 @@ public class Pomodoro.Indicator : Wingpanel.Indicator {
                 display_name: _("Pomodoro"),
                 description: _("The Pomodoro timer"));
 
+      Notify.init (APPNAME);
       pomodoro = new Timer ();
 
-      pomodoro.changed.connect (() => {
-        Notify.Notification notification;
+      var notification = new Notify.Notification ("indicator-pomodoro", "", "");
+      notification.set_hint ("x-canonical-append", new Variant.string ("allowed"));
+      notification.set_urgency (Notify.Urgency.CRITICAL);
 
+      pomodoro.changed.connect (() => {
         switch (pomodoro.state) {
           case Timer.State.WORK:
-            notification = new Notify.Notification ("Get back to the work", "Disable notification, close social networks and focus on what you need to do", null);
+            notification = new Notify.Notification ("Get back to the work", "Disable notification, close social networks and focus on what you need to do", "alarm-symbolic");
             break;
           case Timer.State.SHORTBREAK:
-            notification = new Notify.Notification ("Take a short break", "Grab a coffee, drink water or go to bathroom", null);
+            notification = new Notify.Notification ("Take a short break", "Grab a coffee, drink water or go to bathroom", "alarm-symbolic");
             break;
           case Timer.State.LONGBREAK:
-            notification = new Notify.Notification ("Take a long break", "Have a sunbath, relax or eat some fruits", null);
+            notification = new Notify.Notification ("Take a long break", "Have a sunbath, relax or eat some fruits", "alarm-symbolic");
             break;
           default:
             notification = new Notify.Notification ("Unknown state", "", null);
