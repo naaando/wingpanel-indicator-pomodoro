@@ -13,26 +13,20 @@ public class Pomodoro.Indicator : Wingpanel.Indicator {
 		visible = true;
 
 		pomodoro = new Timer ();
-		notifier = new Notifier (APPNAME);
+		notifier = new Notifier ();
 		pomodoro.changed.connect (show_notification);
 	}
 
 	private void show_notification () {
 		switch (pomodoro.state) {
 			case Timer.State.WORK:
-				notifier.show_notification ("Get back to the work",
-											"Disable notification, close social networks and focus on what you need to do",
-											"alarm-symbolic");
+				notifier.show_notification (_"Get back to the work", _"Focus on what you need to do!");
 				break;
 			case Timer.State.SHORTBREAK:
-				notifier.show_notification ("Take a short break",
-											"Grab a coffee, drink water or go to bathroom",
-											"alarm-symbolic");
+				notifier.show_notification (_"Take a short break", _"Grab a coffee, drink water or go to bathroom");
 				break;
 			case Timer.State.LONGBREAK:
-				notifier.show_notification ("Take a long break",
-											"Have a sunbath, relax or eat some fruits",
-											"alarm-symbolic");
+				notifier.show_notification (_"Take a long break", _"Have a sunbath, relax or eat some fruit");
 				break;
 		}
 	}
