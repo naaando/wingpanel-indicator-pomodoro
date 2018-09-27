@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pomodoro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-02-25 14:25-0300\n"
+"POT-Creation-Date: 2018-09-27 19:32-0300\n"
 "PO-Revision-Date: 2018-02-25 14:25-0300\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,34 +18,58 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#: src/PomodoroIndicator.vala:8
+#: src/Indicator.vala:11
 msgid "Pomodoro"
 msgstr ""
 
-#: src/PomodoroIndicator.vala:9
+#: src/Indicator.vala:12
 msgid "The Pomodoro timer"
 msgstr ""
 
-#: src/PopoverWidget.vala:7
+#: src/Indicator.vala:23
+msgid "Get back to the work"
+msgstr ""
+
+#: src/Indicator.vala:23
+msgid "Focus on what you need to do!"
+msgstr ""
+
+#: src/Indicator.vala:26
+msgid "Take a short break"
+msgstr ""
+
+#: src/Indicator.vala:26
+msgid "Grab a coffee, drink water or go to bathroom"
+msgstr ""
+
+#: src/Indicator.vala:29
+msgid "Take a long break"
+msgstr ""
+
+#: src/Indicator.vala:29
+msgid "Have a sunbath, relax or eat some fruit"
+msgstr ""
+
+#: src/Widget/PopoverWidget.vala:13
 msgid "Start"
 msgstr ""
 
-#: src/PopoverWidget.vala:7
+#: src/Widget/PopoverWidget.vala:13
 msgid "Stop"
 msgstr ""
 
-#: src/PopoverWidget.vala:8
+#: src/Widget/PopoverWidget.vala:15
 msgid "Reset"
 msgstr ""
 
-#: src/PopoverWidget.vala:11
+#: src/Widget/PopoverWidget.vala:41
 msgid "Work"
 msgstr ""
 
-#: src/PopoverWidget.vala:12
+#: src/Widget/PopoverWidget.vala:42
 msgid "Short break"
 msgstr ""
 
-#: src/PopoverWidget.vala:13
+#: src/Widget/PopoverWidget.vala:43
 msgid "Long break"
 msgstr ""

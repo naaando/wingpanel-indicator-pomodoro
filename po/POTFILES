@@ -1,4 +1,3 @@
-src/PomodoroIndicator.vala
-src/PomodoroTimer.vala
-src/PopoverWidget.vala
-src/RevealerSwitch.vala
+src/Indicator.vala
+src/Widget/DisplayWidget.vala
+src/Widget/PopoverWidget.vala
