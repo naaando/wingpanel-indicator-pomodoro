@@ -1,23 +1,27 @@
 project ('pomodoro', ['vala', 'c'],
-  version: '1.0.0',
-  meson_version: '>=0.34'
+    version: '1.1.0',
+    meson_version: '>=0.34'
 )
 
-add_project_arguments(['--vapidir', join_paths(meson.current_source_dir(), 'vapi')], language: 'vala')
-
-glib = dependency('glib-2.0')
-gobject = dependency('gobject-2.0')
-gtk = dependency('gtk+-3.0')
-granite = dependency('granite')
-wingpanel = dependency('wingpanel-2.0')
-notify = dependency('libnotify')
-
-subdir ('src')
 subdir ('po')
 
-shared_module(meson.project_name (),
-            sources,
-            dependencies : [glib, gobject, gtk, granite, wingpanel, notify],
-            install: true,
-            install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
+shared_module(
+    meson.project_name (),
+    'src/Pomodoro/Timer.vala',
+    'src/Widget/DisplayWidget.vala',
+    'src/Widget/PopoverWidget.vala',
+    'src/Widget/RadioButton.vala',
+    'src/Widget/RevealerSwitch.vala',
+    'src/Indicator.vala',
+    'src/Notifier.vala',
+    dependencies : [
+        dependency('glib-2.0'),
+        dependency('gobject-2.0'),
+        dependency('gtk+-3.0'),
+        dependency('granite'),
+        dependency('wingpanel-2.0'),
+        dependency('libnotify'),
+    ],
+    install: true,
+    install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
 )
