@@ -20,7 +20,6 @@ shared_module(
         dependency('gtk+-3.0'),
         dependency('granite'),
         dependency('wingpanel-2.0'),
-        dependency('libnotify'),
     ],
     install: true,
     install_dir : '/usr/lib/x86_64-linux-gnu/wingpanel/'
