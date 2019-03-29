@@ -8,67 +8,68 @@ msgstr ""
 "Project-Id-Version: pomodoro\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-27 19:32-0300\n"
-"PO-Revision-Date: 2018-02-25 14:25-0300\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2019-03-29 20:07+0100\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Language-Team: Dutch <vistausss@outlook.com>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=ASCII\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.1.1\n"
 
 #: src/Indicator.vala:11
 msgid "Pomodoro"
-msgstr ""
+msgstr "Pomodoro"
 
 #: src/Indicator.vala:12
 msgid "The Pomodoro timer"
-msgstr ""
+msgstr "De Pomodoro-timer"
 
 #: src/Indicator.vala:23
 msgid "Get back to the work"
-msgstr ""
+msgstr "Ga weer aan het werk"
 
 #: src/Indicator.vala:23
 msgid "Focus on what you need to do!"
-msgstr ""
+msgstr "Focus op je bezigheden!"
 
 #: src/Indicator.vala:26
 msgid "Take a short break"
-msgstr ""
+msgstr "Neem een korte pauze"
 
 #: src/Indicator.vala:26
 msgid "Grab a coffee, drink water or go to bathroom"
-msgstr ""
+msgstr "Maak een kopje koffie, drink wat water of ga naar het toilet"
 
 #: src/Indicator.vala:29
 msgid "Take a long break"
-msgstr ""
+msgstr "Neem een lange pauze"
 
 #: src/Indicator.vala:29
 msgid "Have a sunbath, relax or eat some fruit"
-msgstr ""
+msgstr "Ga zonnen, relaxen of eet een stuk fruit"
 
 #: src/Widget/PopoverWidget.vala:13
 msgid "Start"
-msgstr ""
+msgstr "Beginnen"
 
 #: src/Widget/PopoverWidget.vala:13
 msgid "Stop"
-msgstr ""
+msgstr "Stoppen"
 
 #: src/Widget/PopoverWidget.vala:15
 msgid "Reset"
-msgstr ""
+msgstr "Herstellen"
 
 #: src/Widget/PopoverWidget.vala:41
 msgid "Work"
-msgstr ""
+msgstr "Werken"
 
 #: src/Widget/PopoverWidget.vala:42
 msgid "Short break"
-msgstr ""
+msgstr "Korte pauze"
 
 #: src/Widget/PopoverWidget.vala:43
 msgid "Long break"
-msgstr ""
+msgstr "Lange pauze"
